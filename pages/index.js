@@ -3,10 +3,16 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import api from "../lib/axios";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Context } from "../lib/context";
 
 export default function Home({ games }) {
   const [gamesFormat, setGamesFormat] = useState([]);
+
+  const {
+    setGamesArray,
+    state: { gamesArray },
+  } = React.useContext(Context);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +29,12 @@ export default function Home({ games }) {
 
     fetchData();
   }, []);
+
+  const addToCart = (game) => {
+    gamesArray.push(game);
+    setGamesArray(gamesArray);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -48,9 +60,13 @@ export default function Home({ games }) {
               <div className="cardBodyGames">
                 <h5 className="titreCartesGames">{game.name}</h5>
 
-                <Link href="/voir-panier" passHref>
-                  <div className="btnCarte">Ajouter au panier</div>
-                </Link>
+                <button
+                  type="button"
+                  className="btnCarte"
+                  onClick={() => addToCart(game)}
+                >
+                  Ajouter au panier
+                </button>
               </div>
             </div>
           ))}
