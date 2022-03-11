@@ -3,6 +3,15 @@
   padding: 0;
 }
 
+:root {
+  --color-bg: #eef0f1;
+  --color-text: #08090a;
+  --color-blue: #3b49df;
+  --color-red: #df3b3b;
+  --color-green: #3bdf72;
+  --color-gray: #b5bdc4;
+}
+
 body {
   background: #f1f1f1;
   font-family: sans-serif;
@@ -586,4 +595,14 @@ hr {
   font-family: "Open Sans";
   font-weight: 600;
   color: #202020;
+}
+
+button.btn-google {
+  background-color: white;
+  color: var(--color-text);
+}
+
+.btn-google img {
+  width: 30px;
+  margin-right: 10px;
 }

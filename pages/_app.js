@@ -1,13 +1,17 @@
 import Header from "../components/Header/Header";
-import ContextProvider from "../lib/context";
+import ContextProvider, { UserContext } from "../lib/context";
 import "../styles/globals.css";
+import { useUserData } from "../lib/hooks";
 
 function MyApp({ Component, pageProps }) {
+  const userData = useUserData();
   return (
     <ContextProvider>
-      <Header>
-        <Component {...pageProps} />
-      </Header>
+      <UserContext.Provider value={userData}>
+        <Header>
+          <Component {...pageProps} />
+        </Header>
+      </UserContext.Provider>
     </ContextProvider>
   );
 }

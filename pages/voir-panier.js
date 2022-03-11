@@ -1,12 +1,18 @@
-import React from "react";
-import { Context } from "../lib/context";
+import React, { useContext } from "react";
+import AuthCheck from "../components/AuthCheck/AuthCheck";
+import { Context, UserContext } from "../lib/context";
 import styles from "../styles/Home.module.css";
+import { useRouter } from "next/router";
 
 const VoirPanier = () => {
   const {
     setGamesArray,
     state: { gamesArray },
   } = React.useContext(Context);
+
+  const { user, username } = useContext(UserContext);
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
       <h1 className="titreGames">Votre panier</h1>
@@ -56,7 +62,19 @@ const VoirPanier = () => {
               </div>
               <div class="total-amount">€20</div>
             </div>
-            <button class="button">S'abonner</button>
+
+            <button
+              class="button"
+              onClick={() => {
+                if (!user) {
+                  router.push(`/se-connecter`);
+                } else {
+                  router.push(`/paiement`);
+                }
+              }}
+            >
+              S'abonner
+            </button>
           </div>
         </div>
       </div>

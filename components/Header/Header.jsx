@@ -1,7 +1,12 @@
 import Link from "next/link";
-import React from "react";
+import { useRouter } from "next/router";
+import React, { useContext } from "react";
+import { UserContext } from "../../lib/context";
+import { auth } from "../../lib/firebase";
 
 const Header = ({ children }) => {
+  const router = useRouter();
+  const { user, username } = useContext(UserContext);
   return (
     <>
       <div>
@@ -30,14 +35,44 @@ const Header = ({ children }) => {
             </li>
             <li className="liensNav">
               <div style={{ display: "flex" }}>
-                <Link href="/se-connecter" passHref>
+                <Link href="/voir-panier" passHref>
                   <a className="lien" style={{ marginRight: 10 }}>
-                    Se connecter
+                    Voir panier
                   </a>
                 </Link>
-                <Link href="/voir-panier" passHref>
-                  <a className="lien">Voir panier</a>
-                </Link>
+                {!user ? (
+                  <Link href="/se-connecter" passHref>
+                    <a className="lien" style={{ marginRight: 10 }}>
+                      Se connecter
+                    </a>
+                  </Link>
+                ) : (
+                  <>
+                    <a
+                      className="lien"
+                      style={{ marginRight: 10 }}
+                      onClick={() => {
+                        if (user) {
+                          router.push("/welcome");
+                        }
+                      }}
+                    >
+                      Welcome
+                    </a>
+                    <a
+                      className="lien"
+                      style={{ marginRight: 10 }}
+                      onClick={() => {
+                        if (user) {
+                          auth.signOut();
+                          router.push("/");
+                        }
+                      }}
+                    >
+                      Se deconnecter
+                    </a>
+                  </>
+                )}
               </div>
             </li>
           </ul>
