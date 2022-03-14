@@ -5,6 +5,7 @@ import api from "../lib/axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Context } from "../lib/context";
+import toast from "react-hot-toast";
 
 export default function Home({ games }) {
   const [gamesFormat, setGamesFormat] = useState([]);
@@ -33,6 +34,7 @@ export default function Home({ games }) {
   const addToCart = (game) => {
     gamesArray.push(game);
     setGamesArray(gamesArray);
+    toast.success("Ajout d'un jeu au panier");
   };
 
   return (
