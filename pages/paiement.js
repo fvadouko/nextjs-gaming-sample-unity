@@ -87,7 +87,7 @@ function CheckoutForm() {
         await batch.commit();
         setGamesArray([]);
         setTimeout(() => {
-          router.push("/welcome");
+          router.push(`/welcome/${user.uid}`);
         }, 3000);
       }
     }

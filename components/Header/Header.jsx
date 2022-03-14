@@ -53,7 +53,7 @@ const Header = ({ children }) => {
                       style={{ marginRight: 10 }}
                       onClick={() => {
                         if (user) {
-                          router.push("/welcome");
+                          router.push(`/welcome/${user.uid}`);
                         }
                       }}
                     >
