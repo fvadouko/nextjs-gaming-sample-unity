@@ -48,7 +48,7 @@ export default function Home({ games }) {
       <div>
         <h1 className="titreGames">Jeux les plus populaires</h1>
         <h3 style={{ fontSize: 25, textAlign: "center" }}>
-          Abonnez-vous pour juste 20€/mois
+          Abonnez-vous à patir de 5€/mois
         </h3>
         <div className="flexAccueil">
           {gamesFormat.map((game, index) => (

@@ -42,7 +42,7 @@ const VoirPanier = () => {
                   <div className="btn">-</div>
                 </div>
                 <div className="prices">
-                  <div className="amount">€0</div>
+                  <div className="amount">€5</div>
                   <div className="save">
                     <u></u>
                   </div>
@@ -60,7 +60,7 @@ const VoirPanier = () => {
                 <div className="Subtotal">Abonnements</div>
                 <div className="items">{gamesArray.length} items</div>
               </div>
-              <div className="total-amount">€20</div>
+              <div className="total-amount">${gamesArray.length * 5}</div>
             </div>
 
             <button

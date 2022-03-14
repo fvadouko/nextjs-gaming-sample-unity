@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
       const pi = await stripe.paymentIntents.create({
-        amount: 2000,
+        amount: req.body.amount * 100,
         currency: "usd",
         payment_method_types: ["card"],
       });

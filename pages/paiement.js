@@ -36,7 +36,7 @@ function CheckoutForm() {
   const getClientSecret = () => {
     return fetch("/api/paiement-stripe", {
       method: "POST",
-      body: JSON.stringify({ name: "franck" }),
+      body: JSON.stringify({ amount: gamesArray.length * 5 }),
       headers: {
         "Content-Type": "application/json",
       },
