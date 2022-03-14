@@ -17,36 +17,36 @@ const VoirPanier = () => {
     <div className={styles.container}>
       <h1 className="titreGames">Votre panier</h1>
       <div className="flexAccueil">
-        <div class="CartContainer">
-          <div class="Header">
-            <h3 class="Heading">Récapitulatif</h3>
-            <h5 class="Action">Remove all</h5>
+        <div className="CartContainer">
+          <div className="Header">
+            <h3 className="Heading">Récapitulatif</h3>
+            <h5 className="Action">Remove all</h5>
           </div>
 
           {gamesArray &&
             gamesArray.map((game, index) => (
-              <div key={index} class="Cart-Items">
-                <div class="image-box">
+              <div key={index} className="Cart-Items">
+                <div className="image-box">
                   <img
                     src={game.box_art_url}
                     alt="jeu profile pic"
                     style={{ width: 60 }}
                   />
                 </div>
-                <div class="about">
-                  <h1 class="title">{game.name}</h1>
+                <div className="about">
+                  <h1 className="title">{game.name}</h1>
                 </div>
-                <div class="counter">
-                  <div class="btn">+</div>
-                  <div class="count">1</div>
-                  <div class="btn">-</div>
+                <div className="counter">
+                  <div className="btn">+</div>
+                  <div className="count">1</div>
+                  <div className="btn">-</div>
                 </div>
-                <div class="prices">
-                  <div class="amount">€0</div>
-                  <div class="save">
+                <div className="prices">
+                  <div className="amount">€0</div>
+                  <div className="save">
                     <u></u>
                   </div>
-                  <div class="remove">
+                  <div className="remove">
                     <u>Remove</u>
                   </div>
                 </div>
@@ -54,17 +54,17 @@ const VoirPanier = () => {
             ))}
 
           <hr />
-          <div class="checkout">
-            <div class="total">
+          <div className="checkout">
+            <div className="total">
               <div>
-                <div class="Subtotal">Abonnements</div>
-                <div class="items">{gamesArray.length} items</div>
+                <div className="Subtotal">Abonnements</div>
+                <div className="items">{gamesArray.length} items</div>
               </div>
-              <div class="total-amount">€20</div>
+              <div className="total-amount">€20</div>
             </div>
 
             <button
-              class="button"
+              className="button"
               onClick={() => {
                 if (!user) {
                   router.push(`/se-connecter`);
