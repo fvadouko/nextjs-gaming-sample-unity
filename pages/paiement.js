@@ -88,7 +88,7 @@ function CheckoutForm() {
         setGamesArray([]);
         setTimeout(() => {
           router.push(`/welcome/${user.uid}`);
-        }, 3000);
+        }, 2000);
       }
     }
   };

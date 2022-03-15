@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { firestore, fromMillis, postToJSON } from "../../lib/firebase";
-import styles from "../../styles/Home.module.css";
+import React, { useContext, useEffect, useState } from "react";
+import { firestore, fromMillis, postToJSON } from "../../../lib/firebase";
+import styles from "../../../styles/Home.module.css";
+import { useRouter } from "next/router";
+import { UserContext } from "../../../lib/context";
+import Link from "next/link";
 
 const Welcome = ({ games }) => {
   const [gamesFormat, setGamesFormat] = useState([]);
+  const { user, username } = useContext(UserContext);
+  const router = useRouter();
 
   useEffect(() => {
     let finalArray = games.map((game) => {
@@ -35,14 +40,9 @@ const Welcome = ({ games }) => {
 
                 <div className="cardBodyGames">
                   <h5 className="titreCartesGames">{game.name}</h5>
-
-                  <button
-                    type="button"
-                    className="btnCarte"
-                    onClick={() => gameToSee(game)}
-                  >
-                    Jouer
-                  </button>
+                  <Link href={`/welcome/${user.uid}/game/${game.id}`} passHref>
+                    <a className="btnCarte">Jouer</a>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -60,7 +60,6 @@ export async function getServerSideProps({ query }) {
   const games = [];
   const docs = await gamesQuery.get(); //).docs.map(postToJSON);
   docs.forEach((doc) => {
-    console.log("gamesQuery", doc.data());
     const gm = doc.data();
     for (let index = 0; index < gm.gamesArray.length; index++) {
       games.push(gm.gamesArray[index]);
