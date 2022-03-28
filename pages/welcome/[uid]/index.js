@@ -59,6 +59,7 @@ export async function getServerSideProps({ query }) {
   const gamesQuery = firestore.collection("users").where("uid", "==", uid);
   const games = [];
   const docs = await gamesQuery.get(); //).docs.map(postToJSON);
+  console.log(docs);
   docs.forEach((doc) => {
     const gm = doc.data();
     for (let index = 0; index < gm.gamesArray.length; index++) {

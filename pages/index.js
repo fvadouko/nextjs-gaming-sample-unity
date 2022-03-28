@@ -7,7 +7,8 @@ import React, { useEffect, useState } from "react";
 import { Context } from "../lib/context";
 import toast from "react-hot-toast";
 
-export default function Home({ games }) {
+export default function Home({games}) {
+  
   const [gamesFormat, setGamesFormat] = useState([]);
 
   const {
@@ -98,6 +99,7 @@ export default function Home({ games }) {
 
 export async function getStaticProps() {
   const result = await api.get("https://api.twitch.tv/helix/games/top");
+  console.log(result)
   const games = result.data.data;
 
   return {

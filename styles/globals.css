@@ -650,3 +650,125 @@ button.btn-google {
 .pay-button:hover {
   box-shadow: 2px 5px 15px 2px rgba(0, 0, 0, 0.2);
 }
+
+.App-Bis {
+  background-color: #2d2b36;
+  overflow: hidden;
+  text-align: center;
+  margin: 0;
+  height: 100vh;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  height: 150px;
+  padding: 20px;
+  color: black;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  position: absolute;
+  top: 45vh;
+  font-size: large;
+  color: white;
+  width: 40vw;
+  height: 20vh;
+}
+
+.App-container {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.App-panel {
+  position: absolute;
+  left: 1vw;
+  top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 15vw;
+  height: 15vh;
+}
+
+.App-info {
+  position: absolute;
+  right: 1vw;
+  top: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 15vw;
+  height: 15vh;
+  color: #fff;
+}
+
+.App-panel button {
+  width: 100%;
+}
+
+.Panel-score {
+  width: 100%;
+  color: #fff;
+}
+
+.Panel-spawner {
+  padding: 5px;
+  display: flex;
+  width: 100%;
+}
+
+.Panel-spawner input,
+button {
+  width: 50%;
+}
+
+.whiteButton {
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  /* background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%); */
+  background-color: #ffffff;
+  border-radius: 2px;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  cursor: pointer;
+  color: #666666;
+  /* font-weight:bold; */
+  padding: 3px 6px;
+  margin-left: 2px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffffff;
+}
+.whiteButton:hover {
+  background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+  background-color: #f6f6f6;
+}
+.whiteButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.Panel-loader {
+}
+
+.App-footer {
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
