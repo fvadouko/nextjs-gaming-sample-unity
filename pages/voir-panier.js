@@ -73,7 +73,7 @@ const VoirPanier = () => {
                 }
               }}
             >
-              S\'abonner
+              Abonnez-vous
             </button>
           </div>
         </div>
