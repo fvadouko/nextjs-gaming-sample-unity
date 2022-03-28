@@ -1,8 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import Stripe from "stripe";
-const stripe = new Stripe(
-  "sk_test_51KcH7pAXiO93TvpGo64hNMmFkOv7sqBnSQ0U1RNy87ZEaIWyr6oMXcKfzjoDbguzvUzHy4haKnRkuUv8lRwuDT5g00BL24NuF9"
-);
+const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_KEY);
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
